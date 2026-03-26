@@ -2,8 +2,20 @@ import { DialogDemo } from '@/components/items/dialog/Dialog'
 import UserPicture from './UserPicture'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useDispatch } from 'react-redux'
+import { toggle } from '@/store/features/cart/cartSlice'
 
 function DialogUploadImg({ handlePicture, openPictureDialog, uploadperformance, user, extraction_id }) {
+    const router = useRouter();
+    const dispatch = useDispatch() 
+
+    const handleCheckout = () => {
+        router.push(`/checkout?extraction_id=${extraction_id}`);
+        handlePicture();
+        dispatch(toggle())
+    }
+
     return (
         <DialogDemo open={openPictureDialog} setOpen={handlePicture} customClass={" w-fit min-w-[300px] z-[99992]"}>
             <div className="mx-auto flex flex-col gap-clamp-24 relative p-clamp-48 ">
@@ -59,12 +71,12 @@ function DialogUploadImg({ handlePicture, openPictureDialog, uploadperformance, 
                             </p>
 
                             {/* go to checkout btn */}
-                            <Link href={`/checkout?extraction_id=${extraction_id}`} className="secondary-btn !text-clamp-18 w-full !px-clamp-28 !py-clamp-16 justify-center flex gap-clamp-10 !leading-[1.3]">
+                            <button onClick={handleCheckout} className="secondary-btn !text-clamp-18 w-full !px-clamp-28 !py-clamp-16 justify-center flex gap-clamp-10 !leading-[1.3]">
                                 Go to checkout
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-clamp-24 h-clamp-24" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M20 18.4805H18V8.41406L6.70703 19.707L5.29297 18.293L16.5859 7H6.51953V5H19C19.5523 5 20 5.44772 20 6V18.4805Z" fill="#FEFEFE" />
                                 </svg>
-                            </Link>
+                            </button>
                         </>
                     }
                 </div>

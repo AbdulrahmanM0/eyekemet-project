@@ -156,6 +156,7 @@ export default function Cart() {
             </>
         )
     }, [cartItems, subTotal, discount, total])
+    
     return (
         <Drawer open={open} direction="right">
             <DrawerContent
