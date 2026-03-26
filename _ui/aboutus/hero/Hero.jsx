@@ -8,7 +8,8 @@ function Hero() {
                 link: "/aboutus"
             }
         ],
-        title: "who we are?"
+        title: "who we are?",
+        img: "/images/bannars/aboutus-headsection.png"
     }
   return (
     <>

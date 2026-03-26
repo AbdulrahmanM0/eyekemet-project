@@ -8,7 +8,8 @@ function Hero() {
                 link: "/Testimonials "
             }
         ],
-        title: "Special Moment"
+        title: "Special Moment",
+        img: "/images/bannars/testmonials.png"
     }
     return (
         <>

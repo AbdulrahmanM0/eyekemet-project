@@ -21,7 +21,7 @@ function Footer() {
                 },
                 {
                     label: "Testimonials",
-                    src: "/testimonials"
+                    src: "/testmonials"
                 },
             ]
         },

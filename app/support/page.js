@@ -6,7 +6,6 @@ import handleFaq from "@/api/faq/faq";
 
 export default async function FAQ() {
   const faq = await handleFaq();
-  console.log("faq",faq)
   return (
     <div>
       <Hero />

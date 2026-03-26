@@ -12,7 +12,8 @@ function Hero({slug,title}) {
                 link: `/blogs/${slug}`
             }
         ],
-        title
+        title,
+        img: "/images/bannars/blogs.png"
     }
     return (
         <>
