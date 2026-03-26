@@ -80,7 +80,6 @@ function DialogUploadImg({ handlePicture, openPictureDialog, uploadperformance, 
                         </>
                     }
                 </div>
-
             </div>
         </DialogDemo>
     )

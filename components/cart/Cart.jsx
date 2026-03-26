@@ -77,6 +77,7 @@ export default function Cart() {
         </>
     }, [total, capaigns, cartItems])
 
+    console.log(cartItems,"cartItems")
 
     const ProductsItems = useCallback(() => {
         return (

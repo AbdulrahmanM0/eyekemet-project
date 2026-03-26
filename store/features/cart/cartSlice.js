@@ -19,6 +19,7 @@ export const cart = createAsyncThunk(
       }
       if (method == "clear") {
         toast.success("cleared successfully");
+        thunkAPI.dispatch(toggle());
       }
       return res.data;
     } catch (err) {
@@ -63,7 +64,7 @@ const cartSlice = createSlice({
       .addCase(cart.fulfilled, (state, action) => {
         console.log(action.payload, "action");
         state.loading = false;
-        state.cartItems = action.payload?.items;
+        state.cartItems = action.payload?.items || [];
         state.total = action.payload?.cart?.total;
         state.subTotal = action.payload?.cart?.subtotal;
         state.tax = action.payload?.cart?.tax;
