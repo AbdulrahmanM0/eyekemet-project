@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux"
 function useProduct() {
     const dispatch = useDispatch();
     const {loading} = useSelector(state => state?.cartReducer);
-    console.log("rennder")
 
     const handleAddToCart = async (id) => {
         const formData = {

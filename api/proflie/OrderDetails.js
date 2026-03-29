@@ -15,7 +15,6 @@ export default async function handleOrderDetails(id) {
                 },
             }
         );
-        console.log("ordersesponse:", res.data);
         return res.data;
     } catch (error) {
         console.error("ordersesponse", error?.response || error.message);

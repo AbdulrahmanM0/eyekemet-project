@@ -139,7 +139,7 @@ export default function FilterAccordion({ filters }) {
   };
 
   return (
-    <Accordion type="multiple" collapsible className="w-full">
+    <Accordion type="multiple" collapsible="true" className="w-full">
       {filters.filter((item) => item.name !== "sort").map((filter, index) => (
         <AccordionItem value={filter.name} key={filter.name + index} className="border-b border-b-gray300">
           <AccordionTrigger className="text-clamp-18 font-thin">

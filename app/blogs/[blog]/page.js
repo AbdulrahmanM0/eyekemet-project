@@ -13,6 +13,7 @@ async function Blog({ params }) {
     title: "Related blogs",
     slogan: "Get the latest news, trends, and expert advice.",
   }
+
   return (
     <div>
       <Hero {...blogs?.post} />

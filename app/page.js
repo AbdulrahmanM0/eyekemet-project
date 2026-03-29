@@ -13,6 +13,7 @@ export default function Home() {
     title: "Exclusive Deals",
     slogan: "Explore our best accessories products ",
   }
+
   return (
     <div className="overflow-hidden">
       <Hero />

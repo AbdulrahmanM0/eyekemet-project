@@ -5,7 +5,7 @@ import React, { useRef, useEffect, useState } from "react";
 import useProduct from './hooks/useProduct';
 import Link from 'next/link';
 
-function Product({ name, price, image_url, type, views, gold, category_name, is_available, id, seo_keywords, customer_id = "" }) {
+function Product({ name, price, image_url, type, views, gold, category_name, is_available, id, seo_keywords, customer_id = "", tags }) {
     const divRef = useRef(null);
     const [margin, setMargin] = useState(0);
     useEffect(() => {
@@ -21,17 +21,11 @@ function Product({ name, price, image_url, type, views, gold, category_name, is_
                 {/* heading  */}
                 <div className='p-clamp-36 flex gap-clamp-10 absolute top-0 left-0 z-10'>
                     {/* gold  */}
-                    <div className='py-clamp-12 px-clamp-16 text-clamp-16 leading-[0.7] text-balance bg-gold100 whitespace-nowrap shrink-0'>
-                        {gold}
-                    </div>
-                    {/* views  */}
-                    <div className='py-clamp-12 px-clamp-16 text-clamp-16 leading-[0.7] text-gray200 bg-gray400'>
-                        {views}
-                    </div>
-                    {/* type  */}
-                    <div className='py-clamp-12 px-clamp-16 text-clamp-16 leading-[0.7] text-gray200 bg-gray400'>
-                        {category_name}
-                    </div>
+                    {tags.map((item, index) => (
+                        <div key={index} className={`py-clamp-12 px-clamp-16 text-clamp-16 leading-[0.7] text-balance ${item === "gold" ? " bg-gold100 " : " bg-gray400 "} whitespace-nowrap shrink-0`}>
+                            {item}
+                        </div>
+                    ))}
                 </div>
 
                 {/* image  */}
@@ -83,7 +77,7 @@ function Product({ name, price, image_url, type, views, gold, category_name, is_
 
                     <div
                         onClick={(e) => {
-                            if(loading) return;
+                            if (loading) return;
                             e.preventDefault();
                             e.stopPropagation();
                             handleAddToCart(id);

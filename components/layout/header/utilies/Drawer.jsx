@@ -54,7 +54,7 @@ function FullScreenDrawer({ open, onClose, setOpen }) {
       style={{
         clipPath: open ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
         visibility: open ? "visible" : "hidden",
-        transition: `clip-path 0.65s cubic-bezier(0.76,0,0.24,1), opacity 0.5s ease, visibility 0s linear ${open ? "0s" : "0.65s"}`,
+        transition: `clipPath 0.65s cubic-bezier(0.76,0,0.24,1), opacity 0.5s ease, visibility 0s linear ${open ? "0s" : "0.65s"}`,
       }}
       className={`fixed inset-0 z-[399] flex flex-col bg-[#0c0b09] overflow-hidden ${open ? "opacity-100" : "opacity-0"}`}
     >

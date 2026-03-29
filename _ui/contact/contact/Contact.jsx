@@ -3,7 +3,7 @@ import React from 'react'
 import ContactForm from './utilies/Form'
 import Details from './utilies/Details'
 
-function Contact({ contactForm }) {
+function Contact() {
     const data = {
         pagination: [
             {
@@ -34,7 +34,7 @@ function Contact({ contactForm }) {
                 {/* contact data & form */}
                 <div className='px-clamp-100 flex justify-between md:flex-row flex-col gap-clamp-40'>
                     <Details />
-                    <ContactForm contactForm={contactForm?.fields}/>
+                    <ContactForm />
                 </div>
 
 

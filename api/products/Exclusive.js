@@ -11,10 +11,9 @@ export default async function handleProducts(params = {}) {
       `functions/v1/get-category-products?tenant_id=${process.env.TENANT_ID}&${queryString}`
     );
 
-    console.log(res.data,"productscame"); 
     return res.data;
   } catch (error) {
-    console.error("Request failed:", error?.response?.data || error.message);
+    console?.error("Request failed:", error?.response?.data || error.message);
     return error?.response?.data;
   }
 }

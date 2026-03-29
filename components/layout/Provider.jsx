@@ -9,9 +9,11 @@ import "aos/dist/aos.css";
 import "react-phone-number-input/style.css";
 import { useEffect } from "react";
 import AOS from "aos";
+import UnAuth from '@/_ui/auth/dialog/UnAuth';
 
 
 function ProviderContainer({ children, customer }) {
+  
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -26,6 +28,7 @@ function ProviderContainer({ children, customer }) {
         {children}
         <Footer />
         <Cart />
+        <UnAuth />
         <ToastContainer theme="dark" position="bottom-right" draggable />
       </Provider>
     </div>

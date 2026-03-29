@@ -6,6 +6,8 @@ import handleSginin from "@/api/auth/login";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { authWarn } from "@/store/features/cart/cartSlice";
 
 const schema = z.object({
     phone: z
@@ -18,6 +20,8 @@ const schema = z.object({
 });
 
 function UseSubmit(props) {
+    const openDialog = useSelector(state => state.cartReducer?.authwarntoggle)
+    const dispatch = useDispatch();
     const [time, setTime] = useState(0);
     const {
         register,
@@ -38,7 +42,7 @@ function UseSubmit(props) {
             formData.set("phone", phone);
 
             const res = await handleSginin(formData);
-            console.log(res, "33ggg")
+
             if (res.status === 429) {
                 console.log("Too many requests");
                 toast.error(res.data?.error || "Too many requests. Please wait a moment.");
@@ -46,6 +50,7 @@ function UseSubmit(props) {
             } else if (res.data?.error) {
                 toast.error(res.data.error);
             } else {
+                if(openDialog) dispatch(authWarn(false));
                 router.push(`/signin/otp?phone=${phone}`);
             }
         } catch (err) {
@@ -56,7 +61,7 @@ function UseSubmit(props) {
         }
     };
 
-    return { onSubmit, register, handleSubmit, errors, isSubmitting, control, setValue , time, setTime}
+    return { onSubmit, register, handleSubmit, errors, isSubmitting, control, setValue, time, setTime }
 }
 
 export default UseSubmit

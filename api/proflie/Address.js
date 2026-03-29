@@ -15,7 +15,6 @@ export default async function handleAddress({ data, method }) {
             },
         }
         );
-        console.log("rerer", res.data)
         return res.data;
     } catch (error) {
         console.log("thiss is sthe rerror", error)

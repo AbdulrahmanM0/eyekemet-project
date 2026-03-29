@@ -13,7 +13,6 @@ export default async function handleAllAddress({ method, params = "" }) {
             },
         }
         );
-        console.log("ressefsewe", res.data)
         return res.data;
     } catch (error) {
         console.log("thiss is sthe rerror", error)

@@ -5,7 +5,7 @@ import AuthBackdrop from '@/components/layout/backdrop/AuthBackdrop'
 import Link from 'next/link'
 
 function UserName({ searchParams, data }) {
-    console.log(searchParams)
+
     return (
         <AuthBackdrop>
             <div className='h-fit my-auto relative z-10'>

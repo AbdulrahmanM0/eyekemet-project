@@ -1,9 +1,7 @@
 "use client"
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 
-// Error message component
+import useContactForm from "../../hooks/UseContact";
+
 function ErrorMsg({ message }) {
   if (!message) return null;
   return (
@@ -16,101 +14,70 @@ function ErrorMsg({ message }) {
   );
 }
 
-// Custom hook for dynamic contact form
-function useContactForm(contactForm) {
-  // Build Zod schema dynamically
-  const schemaShape = {};
-  contactForm?.forEach((field) => {
-    let validator = z.string();
-    if (field.is_required) validator = validator.min(1, `${field.placeholder} is required`);
-    if (field.field_type === "email") validator = validator.email("Invalid email address");
-    if (field.field_type === "phone") validator = validator.regex(/^\+?\d+$/, "Invalid phone number");
-    schemaShape[field.id] = validator;
-  });
-
-  const schema = z.object(schemaShape);
-
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
-    resolver: zodResolver(schema),
-  });
-
-  const onSubmit = (data) => {
-    console.log("Form submitted:", data);
-    // You can call your API here
-  };
-
-  return { register, handleSubmit, errors, isSubmitting, onSubmit };
-}
-
-// Main ContactForm component
-export default function ContactForm({ contactForm }) {
-  const sortedForm = [...(contactForm || [])].sort((a, b) => a.sort_order - b.sort_order);
-
-  const { register, handleSubmit, errors, isSubmitting, onSubmit } = useContactForm(contactForm);
+export default function ContactForm() {
+  const { register, handleSubmit, errors, isSubmitting, onSubmit } = useContactForm();
 
   return (
     <section className='grid grid-cols-1 sm:grid-cols-2 gap-clamp-40'>
-      {/* Form header */}
       <div className="sm:col-span-2 flex flex-col gap-clamp-24">
-        <p className="text-clamp-18 text-gray200 leading-none">
-          Contact Form
-        </p>
-        <h3 className='text-clamp-18 text-light400 leading-none'>
-          Do you have any questions?
-        </h3>
+        <p className="text-clamp-18 text-gray200 leading-none">Contact Form</p>
+        <h3 className='text-clamp-18 text-light400 leading-none'>Do you have any questions?</h3>
       </div>
 
-      {/* Form */}
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-clamp-24"
+        className="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-clamp-24 w-[clamp(320px,50vw,850px)] 3xl:w-[clamp(320px,44.27vw,850px)]"
       >
-        {sortedForm?.map((item, index) => {
-          const isLast = index === sortedForm.length - 1;
+        <div>
+          <input
+            {...register("name")}
+            className='input'
+            placeholder='Enter Full Name *'
+            type="text"
+          />
+          <ErrorMsg message={errors.name?.message} />
+        </div>
 
-          return (
-            <div key={item.id} className={isLast ? "sm:col-span-2" : ""}>
-              {item.field_type === "textarea" && (
-                <div className="flex flex-col gap-1">
-                  <textarea
-                    {...register(item.id)}
-                    className="input w-full"
-                    placeholder={`${item.placeholder}${item.is_required ? " *" : ""}`}
-                  />
-                  <ErrorMsg message={errors[item.id]?.message} />
-                </div>
-              )}
+        <div>
+          <input
+            {...register("email")}
+            className='input'
+            placeholder='Enter email *'
+            type="email"
+          />
+          <ErrorMsg message={errors.email?.message} />
+        </div>
 
-              {item.field_type === "select" && (
-                <div className="flex flex-col gap-1">
-                  <select {...register(item.id)} className="input w-full">
-                    <option value="">
-                      {item.placeholder}{item.is_required && " *"}
-                    </option>
-                    {item.options?.map((opt, i) => (
-                      <option key={i} value={opt}>{opt}</option>
-                    ))}
-                  </select>
-                  <ErrorMsg message={errors[item.id]?.message} />
-                </div>
-              )}
+        <div>
+          <input
+            {...register("mobile")}
+            className='input'
+            placeholder='Enter mobile number *'
+            type="tel"
+          />
+          <ErrorMsg message={errors.mobile?.message} />
+        </div>
 
-              {!["textarea", "select"].includes(item.field_type) && (
-                <div className="flex flex-col gap-1">
-                  <input
-                    {...register(item.id)}
-                    className="input w-full"
-                    placeholder={`${item.placeholder}${item.is_required ? " *" : ""}`}
-                    type={item.field_type === "phone" ? "tel" : item.field_type}
-                  />
-                  <ErrorMsg message={errors[item.id]?.message} />
-                </div>
-              )}
-            </div>
-          );
-        })}
+        <div>
+          <input
+            {...register("subject")}
+            className='input'
+            placeholder='Subject *'
+            type="text"
+          />
+          <ErrorMsg message={errors.subject?.message} />
+        </div>
 
-        {/* Submit button */}
+        <div className="col-span-2">
+          <textarea
+            {...register("message")}
+            className='input'
+            placeholder="Enter your message *"
+            rows={5}
+          ></textarea>
+          <ErrorMsg message={errors.message?.message} />
+        </div>
+
         <div className="sm:col-span-2">
           <button
             type="submit"

@@ -15,7 +15,6 @@ export default async function handleProfile() {
                 },
             }
         );
-        console.log("Success! Response:", res.data);
         return res.data;
     } catch (error) {
         console.error("Request failed:", error?.response?.data || error.message);

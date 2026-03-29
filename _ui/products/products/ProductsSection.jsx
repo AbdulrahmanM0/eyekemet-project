@@ -2,7 +2,6 @@ import Product from '@/components/cards/Product'
 import Loadmore from './utilies/Loadmore'
 
 async function ProductsSection({deals}) {
-    console.log(deals,"dealsdealss")
 
     return (
         <section>

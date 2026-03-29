@@ -8,7 +8,6 @@ export default async function handleProduct({item_id}) {
         const res = await axiosInstance.get(
             `functions/v1/get-menu-items?tenant_id=${process.env.TENANT_ID}&item_id=${item_id}`
         );
-        console.log("get-menu-items", res.data);
         return res.data;
     } catch (error) {
         console.error("Request failed:", error?.response?.data || error.message);

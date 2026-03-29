@@ -50,7 +50,7 @@ function Address({ status, order_number, address, label, street, building_number
                         {/* location  */}
                         <div className='flex gap-clamp-10 text-clamp-18 text-balance leading-[1.2] mb-clamp-24'>
                             <svg xmlns="http://www.w3.org/2000/svg" className='w-clamp-24 h-clamp-24' width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.79372 4.79372C9.22181 1.36563 14.7797 1.36563 18.2078 4.79372C21.6357 8.22182 21.6358 13.7797 18.2078 17.2078L12.7078 22.7078C12.5203 22.8953 12.2659 23.0007 12.0008 23.0008C11.7356 23.0008 11.4812 22.8952 11.2937 22.7078L5.79372 17.2078C2.36564 13.7797 2.36563 8.22181 5.79372 4.79372ZM12.0008 9.50075C11.1723 9.50075 10.5008 10.1723 10.5008 11.0008V11.0105C10.5009 11.8388 11.1724 12.5105 12.0008 12.5105H12.0105C12.8387 12.5104 13.5104 11.8387 13.5105 11.0105V11.0008C13.5105 10.1724 12.8388 9.50091 12.0105 9.50075H12.0008Z" fill="#AE7929" />
+                                <path fillRule="evenodd" clipRule="evenodd" d="M5.79372 4.79372C9.22181 1.36563 14.7797 1.36563 18.2078 4.79372C21.6357 8.22182 21.6358 13.7797 18.2078 17.2078L12.7078 22.7078C12.5203 22.8953 12.2659 23.0007 12.0008 23.0008C11.7356 23.0008 11.4812 22.8952 11.2937 22.7078L5.79372 17.2078C2.36564 13.7797 2.36563 8.22181 5.79372 4.79372ZM12.0008 9.50075C11.1723 9.50075 10.5008 10.1723 10.5008 11.0008V11.0105C10.5009 11.8388 11.1724 12.5105 12.0008 12.5105H12.0105C12.8387 12.5104 13.5104 11.8387 13.5105 11.0105V11.0008C13.5105 10.1724 12.8388 9.50091 12.0105 9.50075H12.0008Z" fill="#AE7929" />
                             </svg>
                             {building_number} - {street} - {address}
                         </div>
@@ -76,10 +76,10 @@ function Address({ status, order_number, address, label, street, building_number
                     <div className='w-fit'>
                         <Link href={`/profile/address/add?id=${id}`} className='border border-gold100 flex gap-clamp-10 py-clamp-12 px-clamp-24 text-clamp-14 font-bold text-balance uppercase leading-[0.7] rounded-[2px] w-full text-center justify-center items-center uppercase'>
                             <svg xmlns="http://www.w3.org/2000/svg" className='w-clamp-16 3xl:w-clamp-18 h-clamp-16 3xl:h-clamp-18' width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                <path d="M2 13L1 17L5 16L16.5858 4.41421C17.3668 3.63316 17.3668 2.36683 16.5858 1.58579L16.4142 1.41421C15.6332 0.633165 14.3668 0.633166 13.5858 1.41421L2 13Z" stroke="#F7F2EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 13L1 17L5 16L16.5858 4.41421C17.3668 3.63316 17.3668 2.36683 16.5858 1.58579L16.4142 1.41421C15.6332 0.633165 14.3668 0.633166 13.5858 1.41421L2 13Z" stroke="#F7F2EA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 <path d="M2 13L1 17L5 16L15 6L12 3L2 13Z" fill="#F7F2EA" />
-                                <path d="M12 3L15 6" stroke="#F7F2EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M10 17H18" stroke="#F7F2EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 3L15 6" stroke="#F7F2EA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M10 17H18" stroke="#F7F2EA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                             Change
                         </Link>

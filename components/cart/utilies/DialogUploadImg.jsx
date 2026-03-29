@@ -18,11 +18,12 @@ function DialogUploadImg({ handlePicture, openPictureDialog, uploadperformance, 
 
     return (
         <DialogDemo open={openPictureDialog} setOpen={handlePicture} customClass={" w-fit min-w-[300px] z-[99992]"}>
+            
             <div className="mx-auto flex flex-col gap-clamp-24 relative p-clamp-48 ">
                 {/* close icon  */}
                 <button onClick={() => handlePicture(null)} className="absolute top-0 p-clamp-10 bg-wd500 right-clamp-20 bg-wd500 -translate-y-[50%] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-clamp-24 h-clamp-24" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7929 6.79289C16.1834 6.40237 16.8164 6.40237 17.207 6.79289C17.5975 7.18342 17.5975 7.81643 17.207 8.20696L13.414 11.9999L17.207 15.7929C17.5975 16.1834 17.5975 16.8164 17.207 17.207C16.8164 17.5975 16.1834 17.5975 15.7929 17.207L11.9999 13.414L8.20696 17.207C7.81643 17.5975 7.18342 17.5975 6.79289 17.207C6.40237 16.8164 6.40237 16.1834 6.79289 15.7929L10.5859 11.9999L6.79289 8.20696C6.40237 7.81643 6.40237 7.18342 6.79289 6.79289C7.18342 6.40237 7.81643 6.40237 8.20696 6.79289L11.9999 10.5859L15.7929 6.79289Z" fill="#D44040" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M15.7929 6.79289C16.1834 6.40237 16.8164 6.40237 17.207 6.79289C17.5975 7.18342 17.5975 7.81643 17.207 8.20696L13.414 11.9999L17.207 15.7929C17.5975 16.1834 17.5975 16.8164 17.207 17.207C16.8164 17.5975 16.1834 17.5975 15.7929 17.207L11.9999 13.414L8.20696 17.207C7.81643 17.5975 7.18342 17.5975 6.79289 17.207C6.40237 16.8164 6.40237 16.1834 6.79289 15.7929L10.5859 11.9999L6.79289 8.20696C6.40237 7.81643 6.40237 7.18342 6.79289 6.79289C7.18342 6.40237 7.81643 6.40237 8.20696 6.79289L11.9999 10.5859L15.7929 6.79289Z" fill="#D44040" />
                     </svg>
                 </button>
 
@@ -58,7 +59,7 @@ function DialogUploadImg({ handlePicture, openPictureDialog, uploadperformance, 
                                     <Image src={user || ""} className="mx-auto w-[120px] h-[120px] object-cover" width={120} height={120} alt="user eye" />
                                     <div className="p-clamp-10 bg-green100 w-fit absolute bottom-0 right-0">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M28.5429 10.5429C28.9334 10.1524 29.5664 10.1524 29.9569 10.5429C30.3474 10.9334 30.3474 11.5664 29.9569 11.957L15.7069 26.207C15.5194 26.3945 15.2651 26.4999 14.9999 26.4999C14.7347 26.4999 14.4804 26.3945 14.2929 26.207L7.54285 19.457C7.15237 19.0664 7.1524 18.4334 7.54285 18.0429C7.93338 17.6524 8.5664 17.6524 8.95692 18.0429L14.9999 24.0859L28.5429 10.5429Z" fill="#FEFEFE" />
+                                            <path fillRule="evenodd" clipRule="evenodd" d="M28.5429 10.5429C28.9334 10.1524 29.5664 10.1524 29.9569 10.5429C30.3474 10.9334 30.3474 11.5664 29.9569 11.957L15.7069 26.207C15.5194 26.3945 15.2651 26.4999 14.9999 26.4999C14.7347 26.4999 14.4804 26.3945 14.2929 26.207L7.54285 19.457C7.15237 19.0664 7.1524 18.4334 7.54285 18.0429C7.93338 17.6524 8.5664 17.6524 8.95692 18.0429L14.9999 24.0859L28.5429 10.5429Z" fill="#FEFEFE" />
                                         </svg>
                                     </div>
                                 </div>

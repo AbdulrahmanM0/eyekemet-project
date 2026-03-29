@@ -1,64 +1,29 @@
-// hooks/useContactForm.js
 "use client"
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMemo } from "react";
 import handleContact from "@/api/contact/handleContact";
 
-export default function useContactForm(contactForm = []) {
+export default function useContactForm() {
+  const schema = z.object({
+    name: z.string().min(1, "Full name is required"),
+    email: z.string().email("Invalid email address"),
+    mobile: z.string()
+      .min(10, "Mobile number must be at least 10 digits")
+      .regex(/^\+?\d+$/, "Invalid phone number"),
+    subject: z.string().min(1, "Subject is required"),
+    message: z.string().min(1, "Message is required"),
+  });
 
-  // create Zod schema dynamically
-  const schema = useMemo(() => {
-    const shape = {};
-
-    contactForm.forEach((field) => {
-      const { id, field_type, is_required } = field;
-
-      let zodField;
-
-      switch (field_type) {
-        case "email":
-          zodField = is_required ? z.string().email("Invalid email") : z.string().email("Invalid email").optional();
-          break;
-        case "phone":
-          zodField = is_required ? z.string().min(10, "Invalid phone") : z.string().min(10, "Invalid phone").optional();
-          break;
-        case "textarea":
-        case "text":
-        case "select":
-        default:
-          zodField = is_required ? z.string().min(1, "Required") : z.string().optional();
-      }
-
-      shape[id] = zodField;
-    });
-
-    return z.object(shape);
-  }, [contactForm]);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
-  } = useForm({
+  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm({
     resolver: zodResolver(schema),
   });
 
-  // submit handler
   const onSubmit = async (data) => {
-    console.log("Form submitted:", data);
-    // TODO: send to API
-    const res = await handleContact({data})
+    const res = await handleContact({data}) 
+    // alert("Form submitted! Check console.");
     reset();
   };
 
-  return {
-    register,
-    handleSubmit,
-    errors,
-    isSubmitting,
-    onSubmit,
-  };
+  return { register, handleSubmit, errors, isSubmitting, onSubmit };
 }

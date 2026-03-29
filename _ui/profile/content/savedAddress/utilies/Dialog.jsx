@@ -13,7 +13,7 @@ function Dialog({ dialog, handleDialog, id , handleSubmit , loading}) {
                 {/* close icon  */}
                 <button onClick={handleDialog} disabled={loading} className="absolute focus:outline-none border-0 top-0 p-clamp-10 bg-wd500 right-clamp-20 bg-wd500 -translate-y-[50%] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-clamp-24 h-clamp-24" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7929 6.79289C16.1834 6.40237 16.8164 6.40237 17.207 6.79289C17.5975 7.18342 17.5975 7.81643 17.207 8.20696L13.414 11.9999L17.207 15.7929C17.5975 16.1834 17.5975 16.8164 17.207 17.207C16.8164 17.5975 16.1834 17.5975 15.7929 17.207L11.9999 13.414L8.20696 17.207C7.81643 17.5975 7.18342 17.5975 6.79289 17.207C6.40237 16.8164 6.40237 16.1834 6.79289 15.7929L10.5859 11.9999L6.79289 8.20696C6.40237 7.81643 6.40237 7.18342 6.79289 6.79289C7.18342 6.40237 7.81643 6.40237 8.20696 6.79289L11.9999 10.5859L15.7929 6.79289Z" fill="#D44040" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M15.7929 6.79289C16.1834 6.40237 16.8164 6.40237 17.207 6.79289C17.5975 7.18342 17.5975 7.81643 17.207 8.20696L13.414 11.9999L17.207 15.7929C17.5975 16.1834 17.5975 16.8164 17.207 17.207C16.8164 17.5975 16.1834 17.5975 15.7929 17.207L11.9999 13.414L8.20696 17.207C7.81643 17.5975 7.18342 17.5975 6.79289 17.207C6.40237 16.8164 6.40237 16.1834 6.79289 15.7929L10.5859 11.9999L6.79289 8.20696C6.40237 7.81643 6.40237 7.18342 6.79289 6.79289C7.18342 6.40237 7.81643 6.40237 8.20696 6.79289L11.9999 10.5859L15.7929 6.79289Z" fill="#D44040" />
                     </svg>
                 </button>
 
@@ -48,9 +48,9 @@ function Dialog({ dialog, handleDialog, id , handleSubmit , loading}) {
                                     viewBox="0 0 39 7"
                                     className="origin-right duration-500 group-hover:rotate-90"
                                 >
-                                    <line stroke-width="4" stroke="white" y2="5" x2="39" y1="5"></line>
+                                    <line strokeWidth="4" stroke="white" y2="5" x2="39" y1="5"></line>
                                     <line
-                                        stroke-width="3"
+                                        strokeWidth="3"
                                         stroke="white"
                                         y2="1.5"
                                         x2="26.0357"
@@ -69,8 +69,8 @@ function Dialog({ dialog, handleDialog, id , handleSubmit , loading}) {
                                         fill="white"
                                         d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"
                                     ></path>
-                                    <path stroke-width="4" stroke="white" d="M12 6L12 29"></path>
-                                    <path stroke-width="4" stroke="white" d="M21 6V29"></path>
+                                    <path strokeWidth="4" stroke="white" d="M12 6L12 29"></path>
+                                    <path strokeWidth="4" stroke="white" d="M21 6V29"></path>
                                 </svg>
                             </div>
                         }

@@ -96,10 +96,10 @@ function DeliverTo({ alladdress, setValue }) {
                             <div className='w-fit'>
                                 <Link href={`/profile/address/add?id=${item?.id}`} className='border border-gold100 flex gap-clamp-10 py-clamp-12 px-clamp-24 text-clamp-14 font-bold text-balance uppercase leading-[0.7] rounded-[2px] w-full text-center justify-center items-center uppercase'>
                                     <svg xmlns="http://www.w3.org/2000/svg" className='w-clamp-16 3xl:w-clamp-18 h-clamp-16 3xl:h-clamp-18' width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                        <path d="M2 13L1 17L5 16L16.5858 4.41421C17.3668 3.63316 17.3668 2.36683 16.5858 1.58579L16.4142 1.41421C15.6332 0.633165 14.3668 0.633166 13.5858 1.41421L2 13Z" stroke="#F7F2EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M2 13L1 17L5 16L16.5858 4.41421C17.3668 3.63316 17.3668 2.36683 16.5858 1.58579L16.4142 1.41421C15.6332 0.633165 14.3668 0.633166 13.5858 1.41421L2 13Z" stroke="#F7F2EA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                         <path d="M2 13L1 17L5 16L15 6L12 3L2 13Z" fill="#F7F2EA" />
-                                        <path d="M12 3L15 6" stroke="#F7F2EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M10 17H18" stroke="#F7F2EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M12 3L15 6" stroke="#F7F2EA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M10 17H18" stroke="#F7F2EA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                     Change
                                 </Link>

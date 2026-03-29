@@ -21,8 +21,6 @@ export default async function handleCategory({ method = "get", formData = {} }) 
       body
     );
 
-    console.log("Response:", res.data);
-
     return {
       data: res.data,
       status: res.status,

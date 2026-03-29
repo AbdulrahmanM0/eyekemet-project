@@ -2,7 +2,6 @@ import LoadMoreButton from '@/components/btn/Loadmore'
 import Blog from '@/components/cards/Blog'
 
 function BlogsSection({blogsData}) {
-    console.log(blogsData,"blogssdata")
 
     return (
         <section>

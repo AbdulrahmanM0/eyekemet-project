@@ -42,7 +42,6 @@ function UseEdit(props) {
             if (res?.error) {
                 toast.error(res.error);
             } else {
-                console.log("testssdsfsd" , res)
                 setSession({customer: res?.customer });
                 router.refresh();
                 toast.success("Profile updated successfully!");

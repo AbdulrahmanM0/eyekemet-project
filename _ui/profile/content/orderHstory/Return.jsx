@@ -2,38 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Item from "./utilies/Item";
 import Head from "../utilies/Head";
+import ReturnItem from "./utilies/ReturnItem";
 
-const steps = [
-    {
-        id: 1,
-        description: "We photograph your unique eye",
-        label: "Placed",
-        badgeClass: "bg-neutral-600 text-white",
-        status: "preparing"
-    },
-    {
-        id: 2,
-        description: "After completing the installation, we will ship the order",
-        label: "Shipping",
-        badgeClass: "bg-yellow-700 text-white",
-        status: "shipped"
-    },
-    {
-        id: 3,
-        description: "On the way to reach you and receive the order",
-        label: "Out of Delivery",
-        badgeClass: "bg-yellow-400 text-black",
-        status: ""
-    },
-    {
-        id: 4,
-        description:
-            "Your order has been delivered successfully. We hope you are happy with this service",
-        label: "Delivered",
-        badgeClass: "bg-green-500 text-white",
-        status: "completed"
-    },
-];
 
 export default function OrderTracking({ items, order_number, created_at, status, subtotal, tax, total, discount, estimated_ready_time, delivery_address, payment_method, customer_name, customer_phone, customer_email }) {
 
@@ -84,6 +54,18 @@ export default function OrderTracking({ items, order_number, created_at, status,
         }
     ]
 
+    const returnType = [
+        {
+            label: "Return",
+        },
+        {
+            label: "Replacement",
+        },
+        {
+            label: "Issue",
+        },
+    ]
+
     return (
         <div >
             <Link href={"/profile/orders"} className="group flex uppercase items-center mb-clamp-40 text-clamp-18 text-balance font-bold ">
@@ -98,119 +80,109 @@ export default function OrderTracking({ items, order_number, created_at, status,
                 <div className="mb-clamp-40">
                     <Head head={`ORDER ID : ${order_number}`} slogan={new Date(created_at).toLocaleString()} />
                 </div>
-
+                <p className="text-clamp-18 text-balance leading-[1.2] mb-clamp-40">
+                    Select the item you want to return, and select an option from the Reason for return menu.
+                </p>
 
                 <div className="grid md:grid-cols-2 grid-cols-1 gap-clamp-40">
                     <div className=' flex flex-col gap-clamp-20 '>
-                        <div className="flex flex-col gap-clamp-40 rounded-2xl  w-full max-w-sm text-white">
-                            {/* Timeline */}
-                            <div className="relative flex flex-col gap-clamp-40">
-
-                                {steps.map((step, index) => {
-                                    const isActive = step.status === status;
-
-                                    return (
-                                        <div key={step.id} className="relative flex flex-col gap-clamp-12 pl-6">
-                                            {index < steps.length - 1 && (
-                                                <div className="absolute left-[7px] top-4 h-[calc(100%+40px)] w-0.5 bg-neutral-600" />
-                                            )}
-                                            <div
-                                                className={`absolute left-0 top-1 w-4 h-4 rounded-full z-10 ${isActive
-                                                        ? "bg-gold100"
-                                                        : "bg-gray300 border-2 border-gray200"
-                                                    }`}
-                                            />
-
-                                            <p className={`text-clamp-14 3xl:text-clamp-16 ${isActive ? "text-white" : "text-gray-500"}`}>
-                                                {step.description}
-                                            </p>
-
-                                            <span className={`px-clamp-10 py-clamp-8 text-clamp-12 3xl:text-clamp-14 w-fit rounded-[2px] ${step.badgeClass}`}>
-                                                {step.label}
-                                            </span>
-                                        </div>
-                                    );
-                                })}
+                        <div className="flex flex-col gap-clamp-24 rounded-2xl  w-full max-w-sm text-white">
+                            <div className='flex gap-clamp-10 items-center text-clamp-16 text-gray200 leading-[0.7]'>
+                                Select type
                             </div>
-                            {/* footer  */}
-                            <div className="w-full">
-                                <div className='flex flex-wrap gap-clamp-40 items-center justify-between w-full'>
-                                    <div className='flex flex-col gap-clamp-16'>
-                                        <div className='whitespace-nowrap text-balance 3xl:text-clamp-20 text-clamp-16 font-thin uppercase leading-[1.2]'>
-                                            SubTotal: {subtotal}
-                                        </div>
-                                        <div className='text-gray200 3xl:text-clamp-20 text-clamp-16 font-thin uppercase leading-[1.2]'>
-                                            Tax:{tax}
-                                        </div>
-                                        {discount > 0 &&
-                                            <div className='text-gray200 3xl:text-clamp-20 text-clamp-16 font-thin uppercase leading-[1.2]'>
-                                                Discount: {discount}
-                                            </div>
-                                        }
-                                        <div className='text-gold100 border-t border-t-gold100 w-fit pt-clamp-10 3xl:text-clamp-20 text-clamp-18 font-bold uppercase leading-[1.2]'>
-                                            Total: EGP {total}
-                                        </div>
-                                    </div>
-                                    <div className='w-fit'>
-                                        <button className='border border-gold100 flex gap-clamp-10 py-clamp-12 px-clamp-24 text-clamp-14 font-bold text-balance uppercase leading-[1.2] rounded-[2px] w-full text-center justify-center items-center uppercase'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" className='w-clamp-16 h-clamp-16' width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                                <path fillRule="evenodd" clipRule="evenodd" d="M15 15.9999C15.5523 15.9999 16 16.4476 16 16.9999C16 17.5522 15.5523 17.9999 15 17.9999H3C2.44772 17.9999 2 17.5522 2 16.9999C2 16.4476 2.44772 15.9999 3 15.9999H15ZM8.29297 0.292893C8.68349 -0.0976314 9.31651 -0.0976305 9.70703 0.292893L14.707 5.29289C14.993 5.57889 15.0786 6.00906 14.9238 6.38274C14.769 6.75634 14.4044 6.99992 14 6.99992H10V13.9999C10 14.5522 9.55228 14.9999 9 14.9999C8.44772 14.9999 8 14.5522 8 13.9999V6.99992H4C3.59558 6.99992 3.23098 6.75634 3.07617 6.38274C2.92139 6.00906 3.00697 5.57889 3.29297 5.29289L8.29297 0.292893Z" fill="#FEFEFE" />
+                            {/* Timeline */}
+                            <div className="relative flex flex-col gap-clamp-20">
+                                {returnType.map((item, index) => (
+                                    <label
+                                        key={index}
+                                        className="flex items-center gap-clamp-24 cursor-pointer select-none p-cclamp-8"
+                                    >
+                                        <input
+                                            type="radio"
+                                            className="peer hidden"
+                                            name="type"
+                                        // checked={!!checked[item.id]}
+                                        // onChange={() => toggle(item.id)}
+                                        />
+
+                                        <div className="h-5 w-5 border border-gray-300 rounded flex items-center justify-center transition-all duration-200 peer-checked:bg-gold100 peer-checked:border-black">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="11"
+                                                height="8"
+                                                viewBox="0 0 11 8"
+                                                className="transition-colors duration-200 text-[#292929] peer-checked:text-white fill-current"
+                                            >
+                                                <path
+                                                    fillRule="evenodd"
+                                                    clipRule="evenodd"
+                                                    d="M8.45975 0.292807C8.85029 -0.0975503 9.48334 -0.0976547 9.87382 0.292807C10.264 0.683296 10.2641 1.31641 9.87382 1.70687L4.33182 7.24886C4.1443 7.43629 3.88993 7.54183 3.62479 7.54183C3.35966 7.54183 3.10528 7.43629 2.91776 7.24886L0.292762 4.62386C-0.0976644 4.23342 -0.0975099 3.60033 0.292762 3.2098C0.683296 2.81929 1.31631 2.81926 1.70682 3.2098L3.62479 5.12777L8.45975 0.292807Z"
+                                                />
                                             </svg>
-                                            Download receipt
-                                        </button>
-                                    </div>
+                                        </div>
+
+                                        <span className="text-white text-clamp-16 font-light">{item.label}</span>
+                                    </label>
+                                ))}
+                            </div>
+
+                            <div className="flex flex-col gap-clamp-20">
+                                {/* orders  */}
+                                <div className='flex gap-clamp-10 items-center text-clamp-16 text-gray200 leading-[0.7]'>
+                                    Select item you want to return
+                                </div>
+                                <div className='flex flex-col gap-clamp-20'>
+                                    {items.map((item, index) => (
+                                        <ReturnItem item={item} key={index} customClass={"w-[76px] h-[79px]"} />
+                                    ))}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-col gap-clamp-24">
-                        <div className="flex flex-col gap-clamp-20">
-                            {/* info  */}
-                            <div className='text-gray200 font-bold uppercase text-light400 text-clamp-20'>
-                                Order Info
-                            </div>
-                            <div className='flex flex-col gap-clamp-14'>
-                                {info.map((item, index) => (
-                                    <div className='flex gap-clamp-10 items-center text-gray200' key={index}>
-                                        <div>
-                                            {item.icon}
-                                        </div>
-                                        <div className='text-clamp-14'>
-                                            {item.body}
-                                        </div>
+                        <div className='flex gap-clamp-10 items-center text-clamp-16 text-gray200 leading-[0.7]'>
+                            Select type
+                        </div>
+                        {/* Timeline */}
+                        <div className="relative flex flex-col gap-clamp-20">
+                            {returnType.map((item, index) => (
+                                <label
+                                    key={index}
+                                    className="flex items-center gap-clamp-24 cursor-pointer select-none p-cclamp-8"
+                                >
+                                    <input
+                                        type="radio"
+                                        className="peer hidden"
+                                        name="type"
+                                    // checked={!!checked[item.id]}
+                                    // onChange={() => toggle(item.id)}
+                                    />
+
+                                    <div className="h-5 w-5 shrink-0 border border-gray-300 rounded flex items-center justify-center transition-all duration-200 peer-checked:bg-gold100 peer-checked:border-black">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="11"
+                                            height="8"
+                                            viewBox="0 0 11 8"
+                                            className="transition-colors duration-200 text-[#292929] peer-checked:text-white fill-current"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d="M8.45975 0.292807C8.85029 -0.0975503 9.48334 -0.0976547 9.87382 0.292807C10.264 0.683296 10.2641 1.31641 9.87382 1.70687L4.33182 7.24886C4.1443 7.43629 3.88993 7.54183 3.62479 7.54183C3.35966 7.54183 3.10528 7.43629 2.91776 7.24886L0.292762 4.62386C-0.0976644 4.23342 -0.0975099 3.60033 0.292762 3.2098C0.683296 2.81929 1.31631 2.81926 1.70682 3.2098L3.62479 5.12777L8.45975 0.292807Z"
+                                            />
+                                        </svg>
                                     </div>
-                                ))}
-                            </div>
+
+                                    <span className="text-white text-clamp-16 font-light">{item.label}</span>
+                                </label>
+                            ))}
                         </div>
-                        <div className="flex flex-col gap-clamp-20">
-                            {/* info  */}
-                            <div className='text-gray200 font-bold uppercase text-light400 text-clamp-20'>
-                                Customer info
-                            </div>
-                            <div className='flex flex-col gap-clamp-14'>
-                                {customerinfo.map((item, index) => (
-                                    <div className='flex gap-clamp-10 items-center text-gray200' key={index}>
-                                        <div>
-                                            {item.icon}
-                                        </div>
-                                        <div className='text-clamp-14'>
-                                            {item.body}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+
+                        <div className="w-full">
+                            <textarea className='input !bg-transparent' placeholder='Enter your reason *' name="" id="" cols="30" rows="10"></textarea>
                         </div>
-                        <div className="flex flex-col gap-clamp-20">
-                            {/* orders  */}
-                            <div className='text-gray200 font-bold uppercase text-light400 text-clamp-20'>
-                                Orders
-                            </div>
-                            <div className='flex flex-col gap-clamp-14'>
-                                {items.map((item, index) => (
-                                    <Item item={item} key={index} />
-                                ))}
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

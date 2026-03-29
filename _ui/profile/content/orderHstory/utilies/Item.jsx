@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import React from 'react'
 
-function Item({item}) {
+function Item({item,customClass}) {
     return (
         <div className='flex flex-col lg:flex-row gap-clamp-30 lg:items-center items-start text-gray200' >
             <div className='shrink-0'>
-                <Image src={item?.image_url} className=" w-[147px] h-[151px] object-cover" width={147} height={151} alt={item?.name} />
+                <Image src={item?.image_url} className={` w-[147px] h-[151px] object-cover ${ customClass}`} width={147} height={151} alt={item?.name} />
             </div>
             <div >
                 <div className='flex flex-col gap-clamp-16 '>
