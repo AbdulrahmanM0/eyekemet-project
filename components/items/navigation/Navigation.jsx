@@ -9,7 +9,7 @@ function Navigation({ pagination }) {
             </Link>
             {pagination?.length > 0 && pagination.map((item, index) => (
                 <React.Fragment key={index}>
-                    <span key={index}>
+                    <span >
                         /
                     </span>
                     <Link key={index+item.title} href={item.Link || "#"}>

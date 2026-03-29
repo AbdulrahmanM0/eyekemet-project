@@ -46,7 +46,7 @@ function Dialog({ dialog, handleDialog, id , handleSubmit , loading}) {
                                     width="10"
                                     fill="none"
                                     viewBox="0 0 39 7"
-                                    class="origin-right duration-500 group-hover:rotate-90"
+                                    className="origin-right duration-500 group-hover:rotate-90"
                                 >
                                     <line stroke-width="4" stroke="white" y2="5" x2="39" y1="5"></line>
                                     <line
@@ -58,7 +58,7 @@ function Dialog({ dialog, handleDialog, id , handleSubmit , loading}) {
                                         x1="12"
                                     ></line>
                                 </svg>
-                                <svg width="10" fill="none" viewBox="0 0 33 39" class="">
+                                <svg width="10" fill="none" viewBox="0 0 33 39" className="">
                                     <mask fill="white" id="path-1-inside-1_8_19">
                                         <path
                                             d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"

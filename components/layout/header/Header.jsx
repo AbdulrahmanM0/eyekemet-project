@@ -61,6 +61,7 @@ const CartContent = React.memo(({ name, value }) => {
         </div>
     )
 })
+CartContent.displayName = "CartContent";
 
 const MenuContent = React.memo(({ handleDrawer }) => {
     return (<>
@@ -93,3 +94,4 @@ const MenuContent = React.memo(({ handleDrawer }) => {
         </Link>
     </>)
 })
+MenuContent.displayName = "MenuContent";

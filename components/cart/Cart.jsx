@@ -176,7 +176,7 @@ export default function Cart() {
                 {/* Header */}
                 <DrawerHeader className="flex items-center justify-between py-clamp-10 p-0">
                     <DrawerTitle className="p-0">
-                        <h5 className="text-light100 font-bold text-clamp-24 3xl:text-clamp-28 uppercase leading-none">Shopping Cart</h5>
+                        <div className="text-light100 font-bold text-clamp-24 3xl:text-clamp-28 uppercase leading-none">Shopping Cart</div>
                     </DrawerTitle>
                     <DrawerClose asChild>
                         <div className="flex gap-clamp-10">
