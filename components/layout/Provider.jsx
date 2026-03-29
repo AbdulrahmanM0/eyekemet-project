@@ -12,7 +12,6 @@ import AOS from "aos";
 
 
 function ProviderContainer({ children, customer }) {
-  console.log("zeftd")
   useEffect(() => {
     AOS.init({
       duration: 1000,

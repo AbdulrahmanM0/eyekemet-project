@@ -32,7 +32,7 @@ function Contact({ contactForm }) {
                 </div>
 
                 {/* contact data & form */}
-                <div className='px-clamp-100 grid grid-cols-2'>
+                <div className='px-clamp-100 flex justify-between md:flex-row flex-col gap-clamp-40'>
                     <Details />
                     <ContactForm contactForm={contactForm?.fields}/>
                 </div>

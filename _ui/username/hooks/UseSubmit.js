@@ -31,7 +31,6 @@ function UseSubmit({ phone, otp }) {
         code: String(otp),
         phone: String(phone),
       });
-      console.log(res, "********")
 
       if (res?.error) {
         toast.error(res?.error || "An error occurred with otp response");

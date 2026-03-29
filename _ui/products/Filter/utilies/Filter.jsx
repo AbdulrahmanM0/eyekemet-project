@@ -41,7 +41,6 @@ export default function FilterDrawer({ filter_products }) {
                 <SheetHeader>
                     <SheetTitle>
                         <div className="text-clamp-16 text-balance font-thin pt-4">
-
                             Filter by :
                         </div>
                     </SheetTitle>

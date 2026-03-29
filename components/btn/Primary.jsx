@@ -1,6 +1,6 @@
-function PrimaryBtn({ value,className }) {
+function PrimaryBtn({ value, className, disable = false }) {
   return (
-    <button  type="submit" className={`relative border border-gold100 hover:border-balance flex overflow-hidden group whitespace-nowrap transition-colors duration-300 ${className}`}>
+    <button type="submit" disabled={disable} className={`relative border border-gold100 hover:border-balance flex overflow-hidden group whitespace-nowrap transition-colors duration-300 ${className}`}>
       {/* Backdrop */}
       <div className="absolute left-0 top-0 h-full w-0 bg-gold100 transition-all duration-500 ease-out group-hover:w-full" />
 

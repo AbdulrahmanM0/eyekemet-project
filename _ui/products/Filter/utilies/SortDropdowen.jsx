@@ -71,7 +71,7 @@ export default function DropFilter({ title, values, onChange }) {
                   isSelected ? "bg-gold100 border-[#D0B183]" : "border-[#6B6B6B]"
                 }`}
               >
-                {/* ✅ Show spinner if selected & pending, otherwise check */}
+                {/*  spinner */}
                 {isSelected && (
                   isPending ? (
                     <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />

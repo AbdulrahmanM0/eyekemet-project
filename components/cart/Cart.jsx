@@ -9,9 +9,7 @@ import {
 import Discounts from "./utilies/Discounts"
 import Image from "next/image"
 import { DialogDemo } from "../items/dialog/Dialog"
-import UserPicture from "./utilies/UserPicture"
 import { useUploadImage } from "./hooks/UploadImage"
-import Link from "next/link"
 import { useSelector } from "react-redux"
 import useCart from "../layout/header/hooks/useCart"
 import Product from "./utilies/Product"
@@ -77,7 +75,7 @@ export default function Cart() {
         </>
     }, [total, capaigns, cartItems])
 
-    console.log(cartItems,"cartItems")
+    console.log(cartItems, "cartItems")
 
     const ProductsItems = useCallback(() => {
         return (
@@ -142,7 +140,7 @@ export default function Cart() {
                             </div>
                         </div>
 
-                        <button onClick={handleImageDialog} className="secondary-btn w-full px-clamp-28 py-clamp-16 justify-center flex gap-clamp-10">
+                        <button disabled={loading} onClick={handleImageDialog} className="secondary-btn w-full px-clamp-28 py-clamp-16 justify-center flex gap-clamp-10">
                             Checkout
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-clamp-24 h-clamp-24" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M20 18.4805H18V8.41406L6.70703 19.707L5.29297 18.293L16.5859 7H6.51953V5H19C19.5523 5 20 5.44772 20 6V18.4805Z" fill="#FEFEFE" />
@@ -156,8 +154,8 @@ export default function Cart() {
                 }
             </>
         )
-    }, [cartItems, subTotal, discount, total])
-    
+    }, [cartItems, subTotal, discount, total, loading])
+
     return (
         <Drawer open={open} direction="right">
             <DrawerContent
@@ -212,7 +210,7 @@ export default function Cart() {
 
             <DialogImg openDialog={openDialog} handleImageDialog={handleImageDialog} handlePicture={handlePicture} handleStreem={handleStreem} />
             {/* dialog upload picture */}
-            <DialogUploadImg  extraction_id={extraction_id} user={user} openPictureDialog={openPictureDialog} handlePicture={handlePicture} uploadperformance={uploadperformance} />
+            <DialogUploadImg extraction_id={extraction_id} user={user} openPictureDialog={openPictureDialog} handlePicture={handlePicture} uploadperformance={uploadperformance} />
             {/* <DialogStreem handleStreem={handleStreem} openStreem={openStreem}/> */}
         </Drawer>
     )

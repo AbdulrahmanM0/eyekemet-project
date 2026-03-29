@@ -43,22 +43,6 @@ export default function Accordion({faqs}) {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    // const faqs = [
-    //     {
-    //         title: "HOW DO I CREATE AN ACCOUNT?",
-    //         content:
-    //             "Lorem ipsum dolor sit amet consectetur. Nullam vitae id cras diam praesent. Varius in velit venenatis consectetur tristique ipsum risus metus etiam. Erat dui vel dolor ut. Nec quam consequat malesuada consequat aliquet pretium.",
-    //     },
-    //     {
-    //         title: "WHAT ARE THE BENEFITS OF HAVING AN ACCOUNT?",
-    //         content: "You get access to exclusive content, faster checkout, and more benefits.",
-    //     },
-    //     {
-    //         title: "WHAT SHOULD I DO IF I FORGET MY USERNAME?",
-    //         content: "You can reset your username using the 'Forgot Username' option on the login page.",
-    //     },
-    // ];
-
     return (
         <div className="bg-full rounded-lg overflow-hidden">
             {faqs.map((faq, index) => (

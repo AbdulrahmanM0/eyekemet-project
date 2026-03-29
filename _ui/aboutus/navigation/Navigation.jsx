@@ -12,8 +12,8 @@ function Navigation() {
     ]
 
     return (
-        <section className="hidden sm:block sticky top-[var(--header-height)] z-30">
-            <div data-aos="fade-left" className="border-b border-b-gray400 bg-full text-balance flex justify-center">
+        <section className="hidden sm:block sticky top-[var(--header-height)] z-30 ">
+            <div className="border-b border-b-gray400 bg-full text-balance flex justify-center w-full overflow-hidden">
 
                 {navs.map((item) => (
                     <Link
@@ -23,8 +23,9 @@ function Navigation() {
                         smooth={true}
                         offset={-100}
                         duration={500}
+                        data-aos="fade-left"
                         activeClass="text-gold100 border-b border-b-gold100"
-                        className="p-clamp-32 leading-[0.7] text-clamp-18 uppercase font-bold whitespace-nowrap cursor-pointer"
+                        className=" p-clamp-32 leading-[0.7] text-clamp-18 uppercase font-bold whitespace-nowrap cursor-pointer"
                     >
                         {item.title}
                     </Link>

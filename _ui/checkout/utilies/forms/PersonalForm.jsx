@@ -1,6 +1,7 @@
 import Phone from "@/components/items/PhoneInput";
+import Skeleton from "react-loading-skeleton";
 
-function ErrorMsg({ message }) {
+function ErrorMsg({ message, loading }) {
     if (!message) return null;
     return (
         <p className="text-red100 text-clamp-12 mt-1 flex items-center gap-1 animate-[slideDown_0.25s_ease-out] [@keyframes_slideDown]{0%{transform:translateY(-10px);opacity:0}100%{transform:translateY(0);opacity:1}}">
@@ -11,7 +12,7 @@ function ErrorMsg({ message }) {
         </p>
     );
 }
-function PersonalForm({ errors, control, register }) {
+function PersonalForm({ errors, control, register, loading }) {
     return (
         <section className='grid grid-cols-1 sm:grid-cols-2 gap-clamp-20'>
             <div className="sm:col-span-2 flex flex-col gap-clamp-24">
@@ -25,12 +26,15 @@ function PersonalForm({ errors, control, register }) {
 
             {/* Name */}
             <div>
-                <input
-                    className="input"
-                    placeholder="Full name *"
-                    type="text"
-                    {...register("customer_name")}
-                />
+                {loading ? <Skeleton height={48} /> :
+                    <input
+                        className="input"
+                        placeholder="Full name *"
+                        type="text"
+                        {...register("customer_name")}
+                        disabled
+                    />
+                }
                 <ErrorMsg message={errors.customer_name?.message} />
             </div>
 

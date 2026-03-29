@@ -4,8 +4,9 @@ import PersonalForm from "./forms/PersonalForm";
 import AddressForm from "./forms/AddressForm";
 import PaymentMethod from "./forms/PaymentMethod";
 import Product from './Product';
+import DeliverTo from './forms/DeliverTo';
 
-function Description({ cartItems, register, control, errors }) {
+function Description({ cartItems, register, control, errors, alladdress, setValue, loading }) {
 
     return (
         <div className='flex flex-col gap-clamp-40'>
@@ -29,17 +30,20 @@ function Description({ cartItems, register, control, errors }) {
             <div>
                 {
                     cartItems?.map((item) => (
-                        <Product {...item} key={item?.id} />
+                        <Product {...item} key={item?.id} loading={loading}/>
                     ))
                 }
             </div>
 
             {/* personal info  */}
-            <PersonalForm register={register} control={control} errors={errors} />
+            <PersonalForm register={register} control={control} errors={errors} loading={loading}/>
+            {/* Deliver to  */}
+            <DeliverTo alladdress={alladdress} setValue={setValue} />
+
             {/* address info  */}
-            <AddressForm register={register}/>
+            {/* <AddressForm register={register}/> */}
             {/* payment method  */}
-            <PaymentMethod register={register}/>
+            <PaymentMethod register={register} />
         </div>
     )
 }

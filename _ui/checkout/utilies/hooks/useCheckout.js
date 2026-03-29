@@ -16,6 +16,16 @@ const schema = z.object({
 }).passthrough();
 
 function useCheckout(props) {
+  const formatAddress = (addresses = []) => {
+    const item = addresses.find((i) => i?.is_default);
+    if (!item) return "";
+
+    return `${item.building_number || ""}, ${item.street || ""}, ${item.floor ? `${item.floor}th floor` : ""
+      }, ${item.address || ""}`
+      .replace(/(, )+/g, ", ")
+      .replace(/^, |, $/g, "");
+  };
+
   const {
     register,
     handleSubmit,
@@ -31,6 +41,7 @@ function useCheckout(props) {
       customer_name: props?.name || "",
       customer_email: props?.email || "",
       customer_phone: props?.phone || "",
+      delivery_address: formatAddress(props?.alladdress),
       customer_id: "",
       order_type: "delivery",
       payment_method: "cash",
@@ -42,7 +53,7 @@ function useCheckout(props) {
     },
   });
 
-  
+
   useEffect(() => {
     if (props.cart) {
       reset({
@@ -64,7 +75,7 @@ function useCheckout(props) {
 
   const onSubmit = async (data) => {
     try {
-      const res = await handleCheckout(data); 
+      const res = await handleCheckout(data);
       if (res?.error) {
         toast.error(res.error);
       } else {

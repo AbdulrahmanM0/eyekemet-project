@@ -2,7 +2,7 @@
 import PrimaryBtn from "@/components/btn/Primary"
 import { useSelector } from "react-redux";
 
-function PaymentSummary({ disable }) {
+function PaymentSummary({ disable , loading }) {
     const { cartItems, subTotal, total, discount, shipping } = useSelector((state) => state.cartReducer);
 
     return (
@@ -85,8 +85,8 @@ function PaymentSummary({ disable }) {
                     </div>
 
                     {/* proceed */}
-                    <div className="bg-full" disabled={disable}>
-                        <PrimaryBtn value="Proceed to checkout" className="w-full justify-center" />
+                    <div className="bg-full" disabled={disable || loading}>
+                        <PrimaryBtn value="Proceed to checkout" className="w-full justify-center" disable={disable || loading} />
                     </div>
                     <div>
                         <p className="text-clamp-16 text-gray200 text-center">

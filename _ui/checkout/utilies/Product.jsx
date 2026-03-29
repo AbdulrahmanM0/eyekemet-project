@@ -2,9 +2,9 @@ import { Item } from '@radix-ui/react-accordion'
 import Image from 'next/image'
 import React from 'react'
 
-function Product({ image_url, name, total_price, quantity, id, modifiers }) {
+function Product({ image_url, name, total_price, quantity, id, modifiers, loading }) {
     return (
-        <div className="py-clamp-32 flex gap-clamp-24 flex-wrap border-b border-b-gray400">
+        <div className="relative py-clamp-32 flex gap-clamp-24 flex-wrap border-b border-b-gray400">
             {/* product img  */}
             <div>
                 <Image src={image_url} width={132} height={132} className="bg-[#101010] w-[clamp(100px,6.875vw,132px)] h-[clamp(100px,6.875vw,132px)]" alt="product image" />
@@ -33,7 +33,7 @@ function Product({ image_url, name, total_price, quantity, id, modifiers }) {
                     </div>
                     {/* eye picture  */}
                     <div className="flex gap-clamp-14">
-                        <Image src="/images/bannars/eye.png" width={24} height={24} alt="user eye picture" />
+                        <Image src="/images/bannars/eye.png" className='w-[24px] h-[24px] object-cover chrink-0' width={24} height={24} alt="user eye picture" />
                         {/* user name  */}
                         <div className="text-light400 text-clamp-18">
                             Iris Blueprinted
@@ -52,6 +52,9 @@ function Product({ image_url, name, total_price, quantity, id, modifiers }) {
                     You save : EGP 10,000
                 </p>
             </div>
+            {loading &&
+                <div className="absolute inset-0 bg-black/20" />
+            }
         </div >
     )
 }

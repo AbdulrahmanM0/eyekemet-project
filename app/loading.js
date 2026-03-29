@@ -4,7 +4,7 @@ import React from 'react'
 function loading() {
     return (
         <div
-            className="w-full h-screen bg-center bg-cover relative"
+            className="w-full h-screen bg-center bg-cover relative overflow-hidden"
             style={{
                 backgroundImage:
                     "url(/images/bannars/black-background-with-black-background-with-pattern.png)",
