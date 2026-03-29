@@ -9,7 +9,7 @@ async function ProductsSection({deals}) {
             <div className='bg-full'>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 pb-clamp-64'>
                     {deals?.products?.map((item, index) => (
-                        <Product key={item.title + index} {...item} />
+                        <Product key={index} {...item} />
                     ))}
                 </div>
 

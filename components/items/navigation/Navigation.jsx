@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import React from 'react'
 
 function Navigation({ pagination }) {
     return (
@@ -7,14 +8,14 @@ function Navigation({ pagination }) {
                 Home
             </Link>
             {pagination?.length > 0 && pagination.map((item, index) => (
-                <>
-                    <span key={index}>
+                <React.Fragment key={index}>
+                    <span >
                         /
                     </span>
                     <Link key={index+item.title} href={item.Link || "#"}>
                         {item.title}
                     </Link>
-                </>
+                </React.Fragment>
             ))}
         </div>
     )
