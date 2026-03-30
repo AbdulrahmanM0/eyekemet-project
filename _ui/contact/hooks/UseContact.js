@@ -8,7 +8,7 @@ export default function useContactForm() {
   const schema = z.object({
     name: z.string().min(1, "Full name is required"),
     email: z.string().email("Invalid email address"),
-    mobile: z.string()
+    phone: z.string()
       .min(10, "Mobile number must be at least 10 digits")
       .regex(/^\+?\d+$/, "Invalid phone number"),
     subject: z.string().min(1, "Subject is required"),
@@ -20,9 +20,10 @@ export default function useContactForm() {
   });
 
   const onSubmit = async (data) => {
-    const res = await handleContact({data}) 
+    const res = await handleContact({data})
+    // console.log(res,"rearaf") 
     // alert("Form submitted! Check console.");
-    reset();
+    // reset();
   };
 
   return { register, handleSubmit, errors, isSubmitting, onSubmit };

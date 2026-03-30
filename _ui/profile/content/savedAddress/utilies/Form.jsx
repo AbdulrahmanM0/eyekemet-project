@@ -1,6 +1,8 @@
 "use client";
 
+import MapAddress from "@/components/items/map/MapAddress";
 import UseAddAddress from "../hooks/UseAddAddress";
+import { CountryDropdown } from "@/components/items/map/CountrySelector";
 
 // error message 
 function ErrorMsg({ message }) {
@@ -26,6 +28,16 @@ function Form({ address, method }) {
         data-aos="fade-up"
         onSubmit={handleSubmit(onSubmit)}
       >
+        {/* <div>
+          <CountryDropdown
+            placeholder="Select country"
+            defaultValue="USA"
+            onChange={() => "void"}
+          />
+        </div>
+        <div className="col-span-2">
+          <MapAddress />
+        </div> */}
         {/* Label */}
         <div className="md:col-span-2">
           <input
@@ -150,7 +162,7 @@ function Form({ address, method }) {
                   fill="#FEFEFE"
                 />
               </svg> :
-              <svg xmlns="http://www.w3.org/2000/svg"  width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none">
                 <path d="M20 18.4805H18V8.41406L6.70703 19.707L5.29297 18.293L16.5859 7H6.51953V5H19C19.5523 5 20 5.44772 20 6V18.4805Z" fill="#FEFEFE" />
               </svg>}
             {isSubmitting ? "Loading..." : method === "post" ? "Add new address" : method === "put" && "Update Address"}

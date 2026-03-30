@@ -3,9 +3,10 @@ import Blog from '@/components/cards/Blog'
 import { blogs } from '@/data/blogs'
 import Swipper from '@/components/swiper/products/Swipper'
 import Link from 'next/link'
+import Product from '@/components/cards/Product';
 
-function Related({title,slogan,related_posts}) {
-    
+function Related({ title, slogan, related_posts, related_products }) {
+
     return (
         <section>
             <div className='bg-full py-clamp-100 '>
@@ -28,7 +29,14 @@ function Related({title,slogan,related_posts}) {
 
                 {/* swiper  */}
                 <div>
-                    <Swipper content={related_posts?.map((item,index) => (<Blog key={item.name + index} {...item} />))}/>
+                    {/* <Swipper content={related_posts?.map((item, index) => (<Blog key={item.name + index} {...item} />))} /> */}
+                    {/* {deals?.products?.length > 0 && ( */}
+                        {/* <div> */}
+                            <Swipper content={related_products.map((item) => (
+                                <Product key={item.id} {...item} />
+                            ))} />
+                        {/* </div> */}
+                    {/* )} */}
                 </div>
             </div>
         </section>

@@ -22,7 +22,7 @@ export default function Cart() {
     const { open } = useSelector((state) => state.cartReducer)
     const { handlePicture, openPictureDialog, handleImageDialog, openDialog, uploadperformance, handleStreem, openStreem, user } = useUploadImage();
     const { handleCartToggle, cartItems, subTotal, total, discount, handleClearCart, handleRemoveItem, handleUpdateItem, capaigns, loading, extraction_id } = useCart();
-
+    
     const CartItems = useCallback(() => {
         return <>
             {cartItems?.length > 0 &&
@@ -92,6 +92,7 @@ export default function Cart() {
     }, [cartItems, loading])
 
     const Footer = useCallback(() => {
+        
         return (
             <>
                 {cartItems?.length > 0 &&
@@ -203,7 +204,6 @@ export default function Cart() {
 
                 {/* Footer & Payment */}
                 <Footer />
-
             </DrawerContent>
 
             <DialogImg openDialog={openDialog} handleImageDialog={handleImageDialog} handlePicture={handlePicture} handleStreem={handleStreem} />

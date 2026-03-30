@@ -10,6 +10,7 @@ async function Product({ params }) {
     title: "You May also like",
     slogan: "Explore our best accessories products ",
   }
+
   return (
     <div>
       <Details data={data} product={product}/>

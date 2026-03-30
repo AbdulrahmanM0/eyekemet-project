@@ -13,7 +13,7 @@ export default async function handleBlogs(slug) {
 
     return res.data;
   } catch (error) {
-    console.error("Blogs error:", error?.response?.data || error.message);
+    // console.error("Blogs error:", error?.response?.data || error.message);
     return null;
   }
 }

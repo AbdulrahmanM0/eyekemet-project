@@ -50,12 +50,12 @@ export default function ContactForm() {
 
         <div>
           <input
-            {...register("mobile")}
+            {...register("phone")}
             className='input'
             placeholder='Enter mobile number *'
             type="tel"
           />
-          <ErrorMsg message={errors.mobile?.message} />
+          <ErrorMsg message={errors.phone?.message} />
         </div>
 
         <div>

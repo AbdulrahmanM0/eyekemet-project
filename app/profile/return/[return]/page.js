@@ -6,7 +6,7 @@ import handleOrders from "@/api/proflie/Orders";
 export default async function Profile({params}) {
   const getorder = await handleOrders({path: "get-customer-orders",params:`?order_id=${params?.return}`});
   const order = getorder?.orders[0];
-
+  console.log(order,"ordere")
   return (
     <ReturnOrder {...order}/> 
   );

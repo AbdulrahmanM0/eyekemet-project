@@ -35,7 +35,7 @@ const steps = [
     },
 ];
 
-export default function OrderTracking({ items, order_number, created_at, status, subtotal, tax, total, discount, estimated_ready_time, delivery_address, payment_method, customer_name, customer_phone, customer_email }) {
+export default function OrderTracking({ items, order_number, created_at, status, subtotal, tax, total, discount, estimated_ready_time, delivery_address, payment_method, customer_name, customer_phone, customer_email,id }) {
 
     const info = [
         {
@@ -95,8 +95,16 @@ export default function OrderTracking({ items, order_number, created_at, status,
 
             <div className=" border-gray400 border p-clamp-64 bg-wd700">
                 {/* Header */}
-                <div className="mb-clamp-40">
+                <div className="mb-clamp-40 flex justify-between gap-clamp-24">
                     <Head head={`ORDER ID : ${order_number}`} slogan={new Date(created_at).toLocaleString()} />
+                    <div>
+                        <Link href={`/profile/return/${id}`} className='secondary-btn whitespace-nowrap shrink-0 !w-fit h-fit'>
+                            Return
+                            <svg xmlns="http://www.w3.org/2000/svg" className='w-clamp-18 h-clamp-18' width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 10.9998C21.5523 10.9998 22 11.4475 22 11.9998C22 17.5226 17.5228 21.9998 12 21.9998C9.98405 21.9998 8.10917 21.3997 6.53906 20.3738L5.20703 21.7068C4.92103 21.9928 4.49086 22.0784 4.11719 21.9236C3.74359 21.7688 3.5 21.4042 3.5 20.9998V16.9998C3.5 16.4475 3.94772 15.9998 4.5 15.9998H8.5C8.90442 15.9998 9.26902 16.2433 9.42383 16.6169C9.57861 16.9906 9.49303 17.4208 9.20703 17.7068L7.99121 18.9216C9.17037 19.6061 10.5387 19.9998 12 19.9998C16.4183 19.9998 20 16.418 20 11.9998C20 11.4475 20.4477 10.9998 21 10.9998ZM12 1.99976C14.0155 1.99976 15.8901 2.59928 17.46 3.62476L18.793 2.29272C19.079 2.00673 19.5091 1.92115 19.8828 2.07593C20.2564 2.23074 20.5 2.59534 20.5 2.99976V6.99976C20.5 7.55204 20.0523 7.99976 19.5 7.99976H15.5C15.0956 7.99976 14.731 7.75617 14.5762 7.38257C14.4214 7.00889 14.507 6.57872 14.793 6.29272L16.0078 5.0769C14.8289 4.39287 13.4608 3.99976 12 3.99976C7.58172 3.99976 4 7.58148 4 11.9998C4 12.552 3.55228 12.9998 3 12.9998C2.44772 12.9998 2 12.552 2 11.9998C2 6.47691 6.47715 1.99976 12 1.99976Z" fill="#FEFEFE" />
+                            </svg>
+                        </Link>
+                    </div>
                 </div>
 
 
@@ -116,8 +124,8 @@ export default function OrderTracking({ items, order_number, created_at, status,
                                             )}
                                             <div
                                                 className={`absolute left-0 top-1 w-4 h-4 rounded-full z-10 ${isActive
-                                                        ? "bg-gold100"
-                                                        : "bg-gray300 border-2 border-gray200"
+                                                    ? "bg-gold100"
+                                                    : "bg-gray300 border-2 border-gray200"
                                                     }`}
                                             />
 

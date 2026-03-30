@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({ name, image_url, icon, count,index }) {
+function Card({ name, image_url, icon, count,index , total_product_count }) {
 
   return (
     <div className='relative group' data-aos="fade-up" data-aos-duration={(index + 1) * 1000}>
@@ -21,7 +21,7 @@ function Card({ name, image_url, icon, count,index }) {
             </div>
             <div>
               <p className='text-clamp-16 leading-[0.7] text-light300'>
-                + {count} Items
+                + {total_product_count} Items
               </p>
             </div>
           </div>

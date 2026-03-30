@@ -11,7 +11,7 @@ const FormProvider = dynamic(() => import('./utilies/forms/FormProvider'), {
   )
 });
 
-function Checkout({ getorders, extraction_id, customer, alladdress }) {
+function Checkout({ getorders, extraction_id, customer, alladdress , extraction , extractionList}) {
   const { name, email, phone } = customer;
   return (
     <section>
@@ -23,6 +23,7 @@ function Checkout({ getorders, extraction_id, customer, alladdress }) {
         extraction_id={extraction_id}
         getorders={getorders}
         customer={customer}
+        extraction={extraction}
       />
     </section>
   )

@@ -9,7 +9,7 @@ function useCart() {
     const [capaigns, setCampaigns] = useState([])
 
     const dispatch = useDispatch();
-
+    
     const handleCartToggle = () => {
         dispatch(toggle())
     }
@@ -41,7 +41,6 @@ function useCart() {
         }
         dispatch(cart({ method: "update", formData }))
     }
-
     const handleClearCart = () => {
         dispatch(cart({ method: "clear" }))
     }

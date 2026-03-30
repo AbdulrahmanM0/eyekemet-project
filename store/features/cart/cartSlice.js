@@ -78,6 +78,7 @@ const cartSlice = createSlice({
         state.loading = true
       })
       .addCase(cart.fulfilled, (state, action) => {
+        console.log(action.payload, "cartttt")
         state.loading = false;
         state.cartItems = action.payload?.items || [];
         state.total = action.payload?.cart?.total;

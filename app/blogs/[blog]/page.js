@@ -10,9 +10,12 @@ async function Blog({ params }) {
     params?.blog
   );
   const productsSlides = {
-    title: "Related blogs",
+    title: "Related Products",
     slogan: "Get the latest news, trends, and expert advice.",
   }
+  blogs.meta_title = blogs?.post?.meta_title || "Blog Details - Eye Kemet";
+  blogs.meta_description = blogs?.post?.meta_description || "Read our latest blog post and stay updated with the latest trends and insights in the industry.";
+  blogs.seo_keywords = blogs?.post?.seo_keywords || "blog details, latest news, trends, expert advice";
 
   return (
     <div>
@@ -21,9 +24,9 @@ async function Blog({ params }) {
       <CutEdge />
       <ContentEnd data={blogs?.post} />
 
-      {blogs?.related_posts && blogs?.related_posts?.length < 0 &&
-        <Related {...productsSlides}  related_posts={blogs?.related_posts}/>
-      }
+      {/* {blogs?.related_products && blogs?.related_products?.length < 0 && */}
+        <Related {...productsSlides}  related_posts={blogs?.related_posts} related_products={blogs?.related_products}/>
+      {/* } */}
     </div>
   )
 }

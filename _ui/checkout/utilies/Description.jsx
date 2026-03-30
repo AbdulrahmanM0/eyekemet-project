@@ -6,8 +6,8 @@ import PaymentMethod from "./forms/PaymentMethod";
 import Product from './Product';
 import DeliverTo from './forms/DeliverTo';
 
-function Description({ cartItems, register, control, errors, alladdress, setValue, loading }) {
-
+function Description({ cartItems, register, control, errors, alladdress, setValue, loading , extraction }) {
+    console.log("extractiodescription", extraction)
     return (
         <div className='flex flex-col gap-clamp-40'>
             {/* navigation */}
@@ -30,7 +30,7 @@ function Description({ cartItems, register, control, errors, alladdress, setValu
             <div>
                 {
                     cartItems?.map((item) => (
-                        <Product {...item} key={item?.id} loading={loading}/>
+                        <Product {...item} key={item?.id} loading={loading} eye={extraction?.result_image_url}/>
                     ))
                 }
             </div>

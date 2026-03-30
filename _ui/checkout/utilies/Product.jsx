@@ -2,7 +2,7 @@ import { Item } from '@radix-ui/react-accordion'
 import Image from 'next/image'
 import React from 'react'
 
-function Product({ image_url, name, total_price, quantity, id, modifiers, loading }) {
+function Product({ image_url, name, total_price, quantity, id, modifiers, loading, eye }) {
     return (
         <div className="relative py-clamp-32 flex gap-clamp-24 flex-wrap border-b border-b-gray400">
             {/* product img  */}
@@ -33,7 +33,7 @@ function Product({ image_url, name, total_price, quantity, id, modifiers, loadin
                     </div>
                     {/* eye picture  */}
                     <div className="flex gap-clamp-14">
-                        <Image src="/images/bannars/eye.png" className='w-[24px] h-[24px] object-cover chrink-0' width={24} height={24} alt="user eye picture" />
+                        <Image src={eye || "/images/bannars/eye.png"} className='w-[24px] h-[24px] object-cover chrink-0' width={24} height={24} alt="user eye picture" />
                         {/* user name  */}
                         <div className="text-light400 text-clamp-18">
                             Iris Blueprinted
@@ -48,9 +48,9 @@ function Product({ image_url, name, total_price, quantity, id, modifiers, loadin
                 <h6 className="text-clamp-28 text-gold100 uppercase font-bold leading-[0.7]">
                     EGP {total_price}
                 </h6>
-                <p className="text-green100 text-clamp-16 leading-[0.7] whtespace-nowrap">
+                {/* <p className="text-green100 text-clamp-16 leading-[0.7] whtespace-nowrap">
                     You save : EGP 10,000
-                </p>
+                </p> */}
             </div>
             {loading &&
                 <div className="absolute inset-0 bg-black/20" />

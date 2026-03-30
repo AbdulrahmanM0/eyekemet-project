@@ -13,6 +13,7 @@ export default async function handleProducts(params = {}) {
 
     return res.data;
   } catch (error) {
+    console.log("Error fetching products:", error?.response || error);
     console?.error("Request failed:", error?.response?.data || error.message);
     return error?.response?.data;
   }

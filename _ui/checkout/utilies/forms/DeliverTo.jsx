@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 
 function DeliverTo({ alladdress, setValue }) {
     const [selectedId, setSelectedId] = useState(null);
+    console.log("alladdress", alladdress)
 
     useEffect(() => {
         if (alladdress?.length) {
@@ -38,7 +39,7 @@ function DeliverTo({ alladdress, setValue }) {
                 </div>
             </div>
             <div className='p-clamp-30 flex flex-col gap-clamp-20 border-gray400 border'>
-                {alladdress.map((item, index) => (
+                {alladdress.length > 0 ? alladdress.map((item, index) => (
                     <div key={item?.id || index} className='p-clamp-20 rounded-[2px] border border-gray400 bg-wd700 flex flex-col gap-clamp-24'>
                         {/* address  */}
                         <div className='flex gap-clamp-18'>
@@ -106,7 +107,11 @@ function DeliverTo({ alladdress, setValue }) {
                             </div>
                         </div>
                     </div>
-                ))}
+                )): 
+                <h3 className='text-clamp-16 text-gray200 leading-[1.2]'>
+                    Please Provide an address to deliver your order, you can add a new address by clicking the "Add new address" button. 
+                </h3>
+                }
             </div>
 
         </section>

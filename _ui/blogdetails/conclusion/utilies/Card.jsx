@@ -4,24 +4,24 @@ function Card({ author_name, author_avatar_url }) {
     return (
         <div className='p-clamp-48 bg-wd600 w-[clamp(320px,59.375vw,1140px)] mx-auto relative'>
             <div className='flex flex-col gap-clamp-30'>
-                <h5 className='text-light400 leading-[0.7]'>
+                {/* <h5 className='text-light400 leading-[0.7]'>
                     Conclusion
-                </h5>
+                </h5> */}
 
                 {/* paragraph  */}
-                <div className='flex flex-col gap-clamp-24'>
+                {/* <div className='flex flex-col gap-clamp-24'>
                     <p className='text-gray200 text-clamp-18'>
                         That’s precisely the focus of Eye Kemet’s upcoming workshop, "Illuminating Inner Vision Through Art." We'll delve into the theory of perception and the practical methods—like intuitive sketching—that can help artists capture emotion, analyze form, and evoke powerful connections.
                     </p>
                     <p className='text-gray200 text-clamp-18'>
                         So, if you’re eager to explore beyond the surface and start embracing intuition as your guide, join us. Let’s transform art together, one brushstroke at a time.
                     </p>
-                </div>
+                </div> */}
 
                 {/* auther */}
                 <div className='flex gap-clamp-20'>
                     {author_avatar_url &&
-                        <Image src="/images/user/user.png" className="rounded-full " width={52} height={52} alt="auther" />
+                        <Image src={author_avatar_url || "/images/user/user.png"} className="rounded-full " width={52} height={52} alt="auther" />
                     }
                     {/* auther data  */}
                     <div className='flex flex-col gap-clamp-14 justify-center'>

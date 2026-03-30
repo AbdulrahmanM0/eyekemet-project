@@ -1,11 +1,19 @@
 "use client";
 
 import { deleteSession } from "@/api/authinticated";
+import { resetCart } from "@/store/features/cart/cartSlice";
+import { useDispatch } from "react-redux";
 
 export default function SignOutButton() {
+    const dispatch = useDispatch()
 
     const handleSignOut = async () => {
-        await deleteSession();
+        try {
+            dispatch(resetCart());
+            await deleteSession();
+        } catch (error) {
+            console.error("Sign out failed:", error);
+        }
     };
 
     return (

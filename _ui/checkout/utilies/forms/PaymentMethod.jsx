@@ -17,7 +17,7 @@ function PaymentMethod({register,loading}) {
             {/* payment options  */}
             <div className='sm:col-span-2 p-clamp-32 grid lg:grid-cols-2 gap-clamp-24 border border-gray400'>
                 {paymentmethods.map((item, index) => (
-                    <div className='p-clamp-20 w-full gap-clamp-16 flex bg-wd500'>
+                    <div key={index} className='p-clamp-20 w-full gap-clamp-16 flex bg-wd500'>
                         {/* checkbox  */}
                         <label htmlFor="remember" className="flex items-center gap-3 select-none">
                             {/* Hidden checkbox */}
