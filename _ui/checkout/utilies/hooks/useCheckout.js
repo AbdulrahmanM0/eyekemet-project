@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { useEffect } from "react";
 import handleCheckout from "@/api/cart/checkout";
 import handlePromocode from "@/api/cart/promocode"; 
+import { useRouter } from "next/navigation";
 // import { validateAndApplyPromocode } from "@/utils/promocode"; 
 
 const schema = z.object({
@@ -19,6 +20,7 @@ const schema = z.object({
 }).passthrough();
 
 function useCheckout(props) {
+  const router = useRouter(); 
   const formatAddress = (addresses = []) => {
     const item = addresses.find((i) => i?.is_default);
     if (!item) return "";
@@ -108,6 +110,7 @@ function useCheckout(props) {
         toast.error(res.error);
       } else {
         toast.success(`Checkout successful! Your order number: ${order_number}`);
+        router.push("/")
       }
     } catch (err) {
       toast.error(err.message || "Something went wrong");
