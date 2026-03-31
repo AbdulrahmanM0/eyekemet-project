@@ -13,18 +13,22 @@ import UnAuth from '@/_ui/auth/dialog/UnAuth';
 import "aos/dist/aos.css";
 
 function ProviderContainer({ children, customer }) {
-  
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
+    const initAOS = () => {
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      AOS.refresh();
+    };
+    setTimeout(initAOS, 200);
   }, []);
 
   return (
     <div className='max-layout mx-auto relative'>
       <Provider store={store}>
-        <Header {...customer}/>
+        <Header {...customer} />
         {children}
         <Footer />
         <Cart />
