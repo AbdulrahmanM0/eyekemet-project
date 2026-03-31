@@ -49,7 +49,7 @@ function ProfileORSign({ name, value }) {
         )
     } else {
         return (
-            <div className="w-fit hidden sm:block">
+            <div className="w-fit">
                 <Link
                     href="/signin"
                     className="secondary-btn whitespace-nowrap shrink-0 !w-fit flex items-center justify-center h-full"
