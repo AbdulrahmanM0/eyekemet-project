@@ -60,10 +60,12 @@ function Address({ status, order_number, address, label, street, building_number
                                 <span className="text-clamp-14 text-[#474747]">Floor Number :</span>
                                 <div className="text-balance text-clamp-18">{floor}th</div>
                             </div>
-                            <div className="flex-1 min-w-0 flex flex-col gap-clamp-14">
-                                <span className="text-clamp-14 text-[#474747]">Apartment Number :</span>
-                                <div className="text-balance text-clamp-18">{apartment}</div>
-                            </div>
+                            {apartment &&
+                                <div className="flex-1 min-w-0 flex flex-col gap-clamp-14">
+                                    <span className="text-clamp-14 text-[#474747]">Apartment Number :</span>
+                                    <div className="text-balance text-clamp-18">{apartment}</div>
+                                </div>
+                            }
                             {/* <div className="flex-1 min-w-0 flex flex-col gap-clamp-14">
                                 <span className="text-clamp-14 text-[#474747]">Phone Number :</span>
                                 <div className="text-balance text-clamp-18">5th</div>
@@ -85,7 +87,7 @@ function Address({ status, order_number, address, label, street, building_number
                         </Link>
                     </div>
                     <div className='w-fit'>
-                        <Remove id={id}/>
+                        <Remove id={id} />
                     </div>
                 </div>
             </div>
