@@ -16,7 +16,8 @@ function Phone({ control }) {
                     inputClass="input w-full"
                     dropdownClass="bg-gray-900"
                     dropdownStyle={{
-                        backgroundColor: "#151515"
+                        backgroundColor: "#151515",
+                        color: "#fff",
                     }}
                     inputStyle={{
                         width: "100%",
@@ -27,7 +28,7 @@ function Phone({ control }) {
                         backgroundColor: "#151515", 
                         fontSize: "clamp(16px, 1vw, 16px)",
                         lineHeight: "0.7",
-                        outline: "none"
+                        outline: "none",
                     }} specialLabel=""
                     onChange={(value) => field.onChange(value)}
                 />
