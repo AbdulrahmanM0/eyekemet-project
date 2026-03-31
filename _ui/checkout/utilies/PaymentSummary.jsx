@@ -72,7 +72,7 @@ function PaymentSummary({ disable, loading }) {
               <button
                 onClick={handleApply}
                 disabled={promoLoading}
-                className="w-full sm:w-fit bg-gold100 text-light300 px-clamp-28 py-clamp-16 font-bold uppercase disabled:opacity-50"
+                className="w-full sm:w-fit bg-gold100 text-light300 px-clamp-28 py-clamp-8 font-bold uppercase disabled:opacity-50"
               >
                 {promoLoading ? "Applying..." : "Apply"}
               </button>

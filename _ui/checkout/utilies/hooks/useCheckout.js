@@ -32,7 +32,6 @@ function useCheckout(props) {
   const {
     register,
     handleSubmit,
-    setError,
     setValue,
     control,
     reset,

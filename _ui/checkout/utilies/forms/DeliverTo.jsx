@@ -10,10 +10,14 @@ function DeliverTo({ alladdress, setValue }) {
     useEffect(() => {
         if (alladdress?.length) {
             const defaultItem = alladdress.find(i => i?.is_default);
-            if (defaultItem) {
-                setSelectedId(defaultItem.id);
+            const singleItem = alladdress.length === 1 ? alladdress[0] : null;
+            const firstItem = !defaultItem && alladdress.length > 1 ? alladdress[0] : null;
 
-                setValue("delivery_address", formatAddress(defaultItem));
+            const itemToSelect = defaultItem || singleItem || firstItem;
+
+            if (itemToSelect) {
+                setSelectedId(itemToSelect.id);
+                setValue("delivery_address", formatAddress(itemToSelect));
             }
         }
     }, [alladdress]);
@@ -57,7 +61,7 @@ function DeliverTo({ alladdress, setValue }) {
                                             const formatted = formatAddress(item);
                                             setValue("delivery_address", formatted, {
                                                 shouldValidate: true,
-                                                shouldDirty: true
+                                                shouldDirty: true,
                                             });
                                         }}
                                     />
@@ -107,10 +111,10 @@ function DeliverTo({ alladdress, setValue }) {
                             </div>
                         </div>
                     </div>
-                )): 
-                <h3 className='text-clamp-16 text-gray200 leading-[1.2]'>
-                    Please Provide an address to deliver your order, you can add a new address by clicking the "Add new address" button. 
-                </h3>
+                )) :
+                    <h3 className='text-clamp-16 text-gray200 leading-[1.2]'>
+                        Please Provide an address to deliver your order, you can add a new address by clicking the "Add new address" button.
+                    </h3>
                 }
             </div>
 
