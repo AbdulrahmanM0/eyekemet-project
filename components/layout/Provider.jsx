@@ -10,7 +10,7 @@ import "react-phone-number-input/style.css";
 import { useEffect } from "react";
 import AOS from "aos";
 import UnAuth from '@/_ui/auth/dialog/UnAuth';
-
+import "aos/dist/aos.css";
 
 function ProviderContainer({ children, customer }) {
   
