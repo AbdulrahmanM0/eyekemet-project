@@ -5,8 +5,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import handleCheckout from "@/api/cart/checkout";
-import handlePromocode from "@/api/cart/promocode"; 
+import handlePromocode from "@/api/cart/promocode";
 import { useRouter } from "next/navigation";
+import useCart from "@/components/layout/header/hooks/useCart";
 // import { validateAndApplyPromocode } from "@/utils/promocode"; 
 
 const schema = z.object({
@@ -20,7 +21,9 @@ const schema = z.object({
 }).passthrough();
 
 function useCheckout(props) {
-  const router = useRouter(); 
+  const router = useRouter();
+  const { handleClearCart } = useCart();
+
   const formatAddress = (addresses = []) => {
     const item = addresses.find((i) => i?.is_default);
     if (!item) return "";
@@ -110,6 +113,7 @@ function useCheckout(props) {
         toast.error(res.error);
       } else {
         toast.success(`Checkout successful! Your order number: ${order_number}`);
+        handleClearCart()
         router.push("/")
       }
     } catch (err) {
